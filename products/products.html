@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Idika</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./assets/images/logo.png" alt="Idika logo">
+                </a>
+            </div>
+            <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <a href="./index.html">Home</a>
+                <a href="./about-us/about-us.html">About Us</a>
+                <a class="active" aria-current="page" href="./products/products.html">Products</a>
+                <!--<a href="#shop-online">Shop Online</a>-->
+                <a href="./contact/contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+  
+
+    <div class="product-banner" id="products">
+    </div>
+
+    <div>
+        <div class="carousels-container">
+
+            <h2>Our Bestsellers</h2>
+            <div class="carousel-stage" id="carousel-stage">
+                <!-- Static carousel cards below -->
+            </div>
+
+            <div class="carousel-controls">
+                <button id="prev-btn" class="nav-btn">‹</button>
+
+                <div class="pagination-indicators" id="pagination-dots">
+                </div>
+
+                <button id="next-btn" class="nav-btn">›</button>
+            </div>
+        </div>
+        <script>
+            const products = [
+                {
+                    href: "/our-brands/idika/products/cow-milk.html",
+                    image: "/our-brands/idika/assets/images/idikacow-milk.png",
+                    alt: "Cow Milk",
+                    name: "Cow Milk",
+                    desc: "Fresh and creamy cow milk packed with essential nutrients.",
+                    size: "500ml"
+                },
+                {
+                    href: "/our-brands/idika/products/lassi.html",
+                    image: "/our-brands/idika/assets/images/idika-lassi.png",
+                    alt: "lassi",
+                    name: "lassi",
+                    desc: "Rich, thick milk — perfect for tea, sweets, and daily nutrition.",
+                    size: "250ml"
+                },
+                {
+                    href: "/our-brands/idika/products/toned-milk.html",
+                    image: "/our-brands/idika/assets/images/idika-toned-milk.png",
+                    alt: "Toned Milk",
+                    name: "Toned Milk",
+                    desc: "Cool, thick, and natural — the perfect balance of taste and health.",
+                    size: "1 Litre"
+                },
+                {
+                    href: "/our-brands/idika/products/curd.html",
+                    image: "/our-brands/idika/assets/images/idika-curd.png",
+                    alt: "curd",
+                    name: "curd",
+                    desc: "Soft, salted butter crafted for every kitchen and meal.",
+                    size: "400g"
+                },
+                {
+                    href: "/our-brands/idika/products/fresh-dahi.html",
+                    image: "/our-brands/idika/assets/images/idika-cheese.png",
+                    alt: "cheese",
+                    name: "cheese",
+                    desc: "",
+                    size: "200g"
+                },
+                {
+                    href: "/our-brands/idika/products/paneer.html",
+                    image: "/our-brands/idika/assets/images/idika-paneer.png",
+                    alt: "paneer",
+                    name: "paneer",
+                    desc: "Soft, fresh butter — perfect for your favorite recipes.",
+                    size: "200g"
+                },
+                {
+                    href: "/our-brands/idika/products/unsalted-butter.html",
+                    image: "./assets/images/idika-unsalted-butter.png",
+                    alt: "unsalted-butterr",
+                    name: "unsalted-butter",
+                    desc: "Soft, pure butter — crafted for the finest taste and texture.",
+                    size: "100g"
+                }
+            ];
+
+            let activeIndex = 0;
+            const total = products.length;
+            const stage = document.getElementById("carousel-stage");
+            const dotsContainer = document.getElementById("pagination-dots");
+
+            // 1. Initial Render (Run Once)
+            function init() {
+                products.forEach((item, index) => {
+                    // Create the card
+                    const card = document.createElement("div");
+                    card.className = "carousel-card";
+                    card.id = `card-${index}`;
+                    card.onclick = () => {
+                        // Customized link open
+                        if (item.href) {
+                            window.open(item.href, '_self');
+                        } else {
+                            activeIndex = index;
+                            update();
+                        }
+                    };
+
+                    card.innerHTML = `
+                        <div class='carousel-product'>
+                            <img src='${item.image}' alt='${item.alt}'>
+                            <div class='product-info'>
+                                <h3>${item.name}</h3>
+                                <p>${item.desc}</p>
+                                <span>${item.size}</span>
+                                <button class='btn btn-primary' onclick=\"window.location.href='mailto:hello@idika.com'\"><i class='bi bi-cart'></i> Order Now</button>
+                            </div>
+                        </div>
+                    `;
+                    stage.appendChild(card);
+
+                    // Create the dot
+                    const dot = document.createElement("div");
+                    dot.className = "dot";
+                    dot.id = `dot-${index}`;
+                    dot.onclick = () => {
+                        activeIndex = index;
+                        update();
+                    };
+                    dotsContainer.appendChild(dot);
+                });
+
+                update(); // First placement
+            }
+
+            // 2. The "Update" function (Triggers the smooth transition)
+            function update() {
+                products.forEach((_, index) => {
+                    const card = document.getElementById(`card-${index}`);
+                    const dot = document.getElementById(`dot-${index}`);
+
+                    // Circular Offset Math
+                    let offset = index - activeIndex;
+                    if (offset > Math.floor(total / 2)) offset -= total;
+                    if (offset < -Math.floor(total / 2)) offset += total;
+
+                    // Apply classes based on offset
+                    let positionClass = "hidden";
+                    if (offset === 0) positionClass = "active";
+                    else if (offset === -1) positionClass = "left";
+                    else if (offset === 1) positionClass = "right";
+                    else if (offset < -1) positionClass = "far-left";
+                    else if (offset > 1) positionClass = "far-right";
+
+                    card.className = `carousel-card ${positionClass}`;
+                    dot.className = `dot ${index === activeIndex ? "active" : ""}`;
+                });
+            }
+
+            // Navigation
+            const next = () => {
+                activeIndex = (activeIndex + 1) % total;
+                update();
+            };
+            const prev = () => {
+                activeIndex = (activeIndex - 1 + total) % total;
+                update();
+            };
+
+            document.getElementById("next-btn").onclick = next;
+            document.getElementById("prev-btn").onclick = prev;
+
+            // Autoplay for 3D carousel
+            let autoplayInterval = null;
+            function startAutoplay() {
+                if (autoplayInterval) return;
+                autoplayInterval = setInterval(next, 4000);
+            }
+            function stopAutoplay() {
+                clearInterval(autoplayInterval);
+                autoplayInterval = null;
+            }
+            // Pause on hover
+            const carouselsContainer = document.querySelector('.carousels-container');
+            if (carouselsContainer) {
+                carouselsContainer.addEventListener('mouseenter', stopAutoplay);
+                carouselsContainer.addEventListener('mouseleave', startAutoplay);
+            }
+
+            // Keyboard Support
+            window.addEventListener("keydown", (e) => {
+                if (e.key === "ArrowRight") next();
+                if (e.key === "ArrowLeft") prev();
+            });
+
+            init();
+            startAutoplay();
+
+        </script>
+    </div>
+
+    <footer>
+        <p> <img src="./assets/images/email-us.png" alt=""> hello@zaikajaroori.com </p>
+        <p> <img src="./assets/images/call-us.png" alt=""> +91 869 300 6186</p>
+        <p>
+            <a aria-label="Instagram" href="https://www.instagram.com/Zaikajaroori" target="_blank">
+                <i class="bi bi-instagram social-icon" aria-hidden="true"></i>
+            </a>
+            <a aria-label="Facebook" href="https://www.facebook.com/Zaikajaroori" target="_blank">
+                <i class="bi bi-facebook social-icon" aria-hidden="true"></i>
+            </a>
+            <a aria-label="LinkedIn" href="https://www.linkedin.com/company/Zaikajaroori" target="_blank">
+                <i class="bi bi-linkedin social-icon" aria-hidden="true"></i>
+            </a>
+            <a aria-label="YouTube" href="https://www.youtube.com/@Zaikajaroori" target="_blank">
+                <i class="bi bi-youtube social-icon" aria-hidden="true"></i>
+            </a>
+        </p>
+        <p>© 2026 Idika. All rights reserved.</p>
+    </footer>
+
+    <script src="./assets/css/style.css"></script>
+
+</body>
+
+</html>
