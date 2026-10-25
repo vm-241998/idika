@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lassi | Idika</title>
+    <link rel="icon" type="image/x-icon" href="/our-brands/idika/assets/images/favicon.png">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/our-brands/idika/assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <a href="/our-brands/idika/index.html">
+                    <img src="/our-brands/idika/assets/images/logo.png" alt="Idika logo">
+                </a>
+            </div>
+            <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <a href="/our-brands/idika/index.html">Home</a>
+                <a href="/our-brands/idika/about-us/about-us.html">About Us</a>
+                <a class="active" aria-current="page" href="/our-brands/idika/products/products.html">Products</a>
+                <!--<a href="#shop-online">Shop Online</a>-->
+                <a href="/our-brands/idika/contact/contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="products-product-page">
+        <div class="products-overview" aria-label="Idika Lassi product details">
+            <div class="products-gallery">
+                <div class="products-main-image">
+                    <img src="/our-brands/idika/assets/images/idika-lassi.png" alt="Idika Lassi 20 ml pack">
+                </div>
+            </div>
+
+            <div class="products-summary">
+                <span class="category-label">Dairy Products</span>
+                <h1>Idika Lassi</h1>
+                <p class="products-tagline"><span>•</span> Sip the Sweetness!</p>
+                <p class="products-description">
+                    Refresh yourself with Idika Lassi, a delicious yogurt-based drink perfect for warm days, meals and relaxing moments. Enjoy its creamy texture and refreshing flavour.
+                </p>
+
+                <div class="products-price">
+                    <strong id="products-price">₹20</strong>
+                    <span id="products-price-note">250 ml pack · Inclusive of all taxes</span>
+                </div>
+
+                <fieldset class="pack-options">
+                    <legend>Available Packs</legend>
+                    <label class="pack-option">
+                        <input type="radio" name="products-pack" value="250 ml" data-price="20" checked>
+                        <span>250 ml</span>
+                    </label>
+                </fieldset>
+
+                <!-- <div class="quantity-control">
+                    <span>Quantity</span>
+                    <div class="quantity-input">
+                        <button type="button" data-quantity-change="-1" aria-label="Decrease quantity">−</button>
+                        <input id="products-quantity" type="number" value="1" min="1" max="99" aria-label="Quantity" readonly>
+                        <button type="button" data-quantity-change="1" aria-label="Increase quantity">+</button>
+                    </div>
+                </div>-->
+
+                <button type="button" class="buy-now-button" id="buy-products-now">Buy Now</button>
+
+                <ul class="products-benefits outlined-benefits" aria-label="Product highlights">
+                    <li><i aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M9 2h6M10 2v4l-2 2v11a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3V8l-2-2V2M8 11h8M8 17h8"/></svg></i><span>Dairy Goodness</span></li>
+                    <li><i aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 3h12l-1 18H7L6 3zM6 8h12M9 3V1m6 2V1"/></svg></i><span>Cool &amp; Refreshing</span></li>
+                    <li><i aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M9 3 7.5 7.5 3 9l4.5 1.5L9 15l1.5-4.5L15 9l-4.5-1.5L9 3zM18 13l-1 3  -3 1 3 1 1 3 1-3 3-1-3-1-1-3zM17 2l-.5 1.5L15 4l1.5.5L17 6l.5-1.5L19 4l-1.5-.5L17 2z"/></svg></i><span>Delicious Taste</span></li>
+                    <li><i aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 1v2m0 18v2M4.2 4.2l1.4 1.4m12.8 12.8 1.4 1.4M1 12h2m18 0h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg></i><span>Best Served Chilled</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="products-information" aria-label="More about Idika Lassi">
+            <div class="information-tabs" role="tablist" aria-label="Product information">
+                <button type="button" role="tab" id="tab-about" aria-controls="panel-about" aria-selected="true" data-tab="about">Description</button>
+                <button type="button" role="tab" id="tab-features" aria-controls="panel-features" aria-selected="false" data-tab="features" tabindex="-1">Key Features</button>
+                <button type="button" role="tab" id="tab-use" aria-controls="panel-use" aria-selected="false" data-tab="use" tabindex="-1">How to Use</button>
+                <button type="button" role="tab" id="tab-nutrition" aria-controls="panel-nutrition" aria-selected="false" data-tab="nutrition" tabindex="-1">Nutrition Information</button>
+                <button type="button" role="tab" id="tab-storage" aria-controls="panel-storage" aria-selected="false" data-tab="storage" tabindex="-1">Storage &amp; Shelf Life</button>
+            </div>
+
+            <div class="information-panel" id="panel-about" role="tabpanel" aria-labelledby="tab-about" data-panel="about">
+                <div class="information-column">
+                    <h2>Description</h2>
+                    <p>Enjoy the creamy goodness of Idika Lassi, a refreshing yogurt-based drink perfect for any occasion.</p>
+                </div>
+                <div class="information-column">
+                    <h2>Product Information</h2>
+                    <table class="product-specifications">
+                        <tbody>
+                            <tr><th scope="row">Brand</th><td>Idika</td></tr>
+                            <tr><th scope="row">Product Name</th><td>Lassi</td></tr>
+                            <tr><th scope="row">Category</th><td>Dairy Products</td></tr>
+                            <tr><th scope="row">Available Sizes</th><td>250 ml</td></tr>
+                            <tr><th scope="row">Storage</th><td>Keep refrigerated; follow pack instructions</td></tr>
+                            <tr><th scope="row">Ingredients</th><td>Refer to the product label</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="information-panel" id="panel-features" role="tabpanel" aria-labelledby="tab-features" data-panel="features" hidden>
+                <div class="information-column">
+                    <h2>Key Features</h2>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> Creamy and refreshing drink</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Convenient for everyday enjoyment</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Perfect alongside meals</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Serve chilled for a refreshing experience</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="information-panel" id="panel-use" role="tabpanel" aria-labelledby="tab-use" data-panel="use" hidden>
+                <div class="information-column">
+                    <h2>How to Use</h2>
+                    <p>Shake if instructed on the packaging, serve chilled and enjoy.</p>
+                </div>
+            </div>
+
+            <div class="information-panel" id="panel-nutrition" role="tabpanel" aria-labelledby="tab-nutrition" data-panel="nutrition" hidden>
+                <div class="information-column">
+                    <h2>Nutrition Information</h2>
+                    <p>Please refer to the nutrition facts printed on the actual product packaging.</p>
+                </div>
+            </div>
+
+            <div class="information-panel" id="panel-storage" role="tabpanel" aria-labelledby="tab-storage" data-panel="storage" hidden>
+                <div class="information-column">
+                    <h2>Storage &amp; Shelf Life</h2>
+                    <p>Keep refrigerated. Refer to the actual product packaging for storage details and shelf life.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p> <img src="/our-brands/idika/assets/images/email-us.png" alt=""> hello@zaikajaroori.com </p>
+        <p> <img src="/our-brands/idika/assets/images/call-us.png" alt=""> +91 869 300 6186</p>
+        <p>
+            <a aria-label="Instagram" href="https://www.instagram.com/Zaikajaroori" target="_blank">
+                <i class="bi bi-instagram social-icon" aria-hidden="true"></i>
+            </a>
+            <a aria-label="Facebook" href="https://www.facebook.com/Zaikajaroori" target="_blank">
+                <i class="bi bi-facebook social-icon" aria-hidden="true"></i>
+            </a>
+            <a aria-label="LinkedIn" href="https://www.linkedin.com/company/Zaikajaroori" target="_blank">
+                <i class="bi bi-linkedin social-icon" aria-hidden="true"></i>
+            </a>
+            <a aria-label="YouTube" href="https://www.youtube.com/@Zaikajaroori" target="_blank">
+                <i class="bi bi-youtube social-icon" aria-hidden="true"></i>
+            </a>
+        </p>
+        <p>© 2026 Idika. All rights reserved.</p>
+    </footer>
+
+    <script src="/our-brands/idika/assets/js/product-page.js"></script>
+
+</body>
+
+</html>
