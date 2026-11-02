@@ -958,7 +958,7 @@ footer a {
 
 .products-description {
     margin: 0 0 16px;
-    color: #64748b;
+    color: #000;
     line-height: 1.65;
 }
 
@@ -977,7 +977,7 @@ footer a {
 }
 
 .products-price span {
-    color: #64748b;
+    color: #000;
     font-size: .78rem;
 }
 
@@ -1195,7 +1195,7 @@ footer a {
     padding: 15px 14px 12px;
     border: 0;
     background: transparent;
-    color: #64748b;
+    color: #000;
     font-size: .84rem;
     font-weight: 600;
     white-space: nowrap;
@@ -1248,7 +1248,7 @@ footer a {
 
 .information-column p {
     margin: 0;
-    color: #64748b;
+    color: #000;
     font-size: .86rem;
     line-height: 1.6;
 }
